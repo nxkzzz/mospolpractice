@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Этапы создания Telegram-бота для учёта расходов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2 {
+            color: #005599;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Этапы создания Telegram-бота для учёта расходов</h1>
+
+    <h2>1. Получение токена от BotFather</h2>
+    <p>Чтобы начать создание Telegram-бота, необходимо получить <strong>токен</strong> — уникальный ключ, который используется для взаимодействия с API Telegram.</p>
+    <ol>
+        <li>Откройте Telegram и найдите <code>@BotFather</code>.</li>
+        <li>Отправьте команду <code>/start</code>, затем <code>/newbot</code>.</li>
+        <li>Укажите имя и уникальное имя пользователя для бота (должно заканчиваться на <code>bot</code>).</li>
+        <li>Скопируйте полученный токен — он понадобится для настройки бота в коде.</li>
+    </ol>
+
+    <h2>2. Подключение библиотек</h2>
+    <pre><code>import logging
+import pandas as pd
+from datetime import datetime
+from telegram import Update
+from telegram.ext import Application, CommandHandler, CallbackContext
+from io import BytesIO</code></pre>
+
+    <h2>3. Настройка логирования</h2>
+    <pre><code>logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)</code></pre>
+
+    <h2>4. Работа с Excel-файлом</h2>
+    <pre><code>def create_expenses_file():
+    try:
+        df = pd.read_excel(EXCEL_FILE)
+    except FileNotFoundError:
+        df = pd.DataFrame(columns=["Дата", "Сумма", "Описание"])
+        df.to_excel(EXCEL_FILE, index=False)</code></pre>
+
+    <h2>5. Запись нового расхода</h2>
+    <pre><code>def record_expense(date, amount, description):
+    df = pd.read_excel(EXCEL_FILE)
+    new_row = pd.DataFrame({"Дата": [date], "Сумма": [amount], "Описание": [description]})
+    df = pd.concat([df, new_row], ignore_index=True)
+    df.to_excel(EXCEL_FILE, index=False)</code></pre>
+
+    <h2>6. Просмотр расходов</h2>
+    <pre><code>def show_expenses(date=None):
+    df = pd.read_excel(EXCEL_FILE)
+    df['Дата'] = pd.to_datetime(df['Дата'])
+    ...
+    return результат</code></pre>
+
+    <h2>7. Отправка Excel-файла</h2>
+    <pre><code>async def send_expense_file(update: Update):
+    ...
+    await update.message.reply_document(document=output, filename="expenses.xlsx")</code></pre>
+
+    <h2>8. Реализация команд</h2>
+    <ul>
+        <li><code>/start</code> — Приветствие и инструкция</li>
+        <li><code>/add</code> — Добавление нового расхода</li>
+        <li><code>/show</code> — Показ расходов</li>
+        <li><code>/file</code> — Получение файла</li>
+    </ul>
+
+    <h2>9. Запуск бота</h2>
+    <pre><code>application = Application.builder().token(TOKEN).build()
+application.add_handler(CommandHandler("start", start))
+...
+
+application.run_polling()</code></pre>
+
+    <h2>Заключение</h2>
+    <h2>10. Работа Telegram-бота</h2>
+<p>На видео по ссылке представлена работа Telegram-бота</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/H4rX1NhJNWM" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+  </iframe>
+</div>
+
+    <p>Именно так был создан Telegram бот для персонального учета расходов NekkoFinance. </p>
+</body>
+</html>
