@@ -1,0 +1,151 @@
+/* Общие стили для страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e0f7fa; /* Светло-голубой фон */
+    color: #333;
+  }
+  
+  /* Стили для шапки сайта */
+  header {
+    background-color: #0d47a1; /* Темно-синий цвет */
+    color: white;
+    padding: 1em;
+    display: flex;                 /* Выравнивание по горизонтали */
+    align-items: center;           /* Выравнивание по вертикали */
+    gap: 10px;                     /* Отступ между логотипом и заголовком */
+  }
+  
+  header h1 {
+    margin: 0;                     /* Убираем отступы у заголовка */
+    color: #fff;                   /* Белый цвет для заголовка */
+  }
+  
+  /* Стили для логотипа */
+  .logo {
+    height: 60px;                  /* Высота логотипа */
+    vertical-align: middle;        /* Центрирование по вертикали */
+  }
+  
+  /* Навигация */
+  nav {
+    background-color: #b71c1c; /* Красный фон для навигации */
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  nav a:hover {
+    background-color: #880e4f; /* Тёмно-красный при наведении */
+  }
+  
+  /* Основной контент */
+  main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
+    color: #0d47a1; /* Синий цвет для заголовков */
+  }
+  
+  /* Ссылки в контенте */
+  a {
+    color: #0d47a1; /* Синие ссылки */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #b71c1c; /* Красные ссылки при наведении */
+  }
+  
+  /* Новый блок с фотографией и описанием поездки */
+  .trip-block {
+    background-color: #ffffff;  /* Белый фон для блока */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Тень блока */
+  }
+  
+  .trip-block h2 {
+    color: #0d47a1; /* Синий цвет для заголовка в блоке */
+  }
+  
+  .trip-content {
+    display: flex;                 /* Используем flexbox для выравнивания элементов */
+    gap: 20px;                     /* Отступ между фото и текстом */
+    align-items: center;           /* Центрирование по вертикали */
+  }
+  
+  .trip-photo {
+    width: 250px;                  /* Ширина фото */
+    height: auto;                  /* Пропорциональная высота */
+    border-radius: 8px;
+  }
+  
+  .trip-description {
+    flex: 1;                        /* Занимает оставшееся пространство */
+    color: #333;
+  }
+  
+  /* Второй блок с фотографией справа и текстом слева */
+  .trip-knowledge {
+    background-color: #ffffff;  /* Белый фон для блока */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Тень блока */
+  }
+  
+  .trip-knowledge h2 {
+    color: #0d47a1; /* Синий цвет для заголовка в блоке */
+  }
+  
+  .knowledge-content {
+    display: flex;                 /* Используем flexbox для выравнивания элементов */
+    gap: 20px;                     /* Отступ между фото и текстом */
+    align-items: center;           /* Центрирование по вертикали */
+  }
+  
+  .knowledge-photo {
+    width: 250px;                  /* Ширина фото */
+    height: auto;                  /* Пропорциональная высота */
+    border-radius: 8px;
+  }
+  
+  .knowledge-description {
+    flex: 1;                        /* Занимает оставшееся пространство */
+    color: #333;
+  }
+  
+  footer {
+    background-color: #0d47a1; /* Синий цвет футера */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  
+  footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #f50057; /* Красный цвет ссылки в футере */
+  }
+  
