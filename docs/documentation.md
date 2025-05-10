@@ -63,4 +63,4 @@
 
 
 ## 📅 Диаграмма Ганта
-<img width="828" alt="image" src="https://github.com/user-attachments/assets/75b3967a-0436-4273-b8e3-112673281682" />
+<img width="828" alt="image" src="https://github.com/nxkzzz/mospolpractice/blob/main/docs/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202025-05-10%20172152.png" />
